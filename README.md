@@ -21,4 +21,7 @@ victem machine will send logs to analyst SIME
 
 <video src="https://github.com/user-attachments/assets/a63ee215-3918-4870-bf3b-a83177d8ac62" width="100%" controls preload="none"></video>
 
-so let start conf
+so let start confiuger each machine 
+<img width="1770" height="1030" alt="Screenshot_٢٠٢٦٠٦٢٢_٠٧٤٥١٤" src="https://github.com/user-attachments/assets/426cc2cc-da40-4b3b-bcd3-29b558a6345f" />
+
+i setup each machine in the Vmwear and now i will configure it so it can comuncate
