@@ -42,4 +42,15 @@ now let is create our new  virtual network and we will name it LAN10
 
 <img width="1920" height="1035" alt="Screenshot_٢٠٢٦٠٦٢٢_١٥١٣٣٥" src="https://github.com/user-attachments/assets/8b6206d8-f242-4755-9cc6-b699edd580a3" />
 
+Click Save and we Done
+
 now we will configure each virtual matchine and make them set our LAN 10 virtual network
+
+<img width="1920" height="1035" alt="Screenshot_٢٠٢٦٠٦٢٢_١٥١٨٥٣" src="https://github.com/user-attachments/assets/4aa347b7-8ca9-45de-999e-3c6dcdce0b7a" />
+click done to set the victim virual machine up 
+
+and we will do the same with the attacker virual machine
+
+
+
+
