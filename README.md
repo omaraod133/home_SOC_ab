@@ -41,7 +41,7 @@ LAN Segment:A provate network shared with other standed VMs (they can talk to ot
 now let is create our new  virtual network and we will name it LAN10
 
 <img width="1920" height="1035" alt="Screenshot_٢٠٢٦٠٦٢٢_١٥١٣٣٥" src="https://github.com/user-attachments/assets/8b6206d8-f242-4755-9cc6-b699edd580a3" />
-
+t
 Click Save and we Done
 
 now we will configure each virtual matchine and make them set our LAN 10 virtual network
