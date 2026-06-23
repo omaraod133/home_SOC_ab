@@ -63,3 +63,17 @@ then we will configure victm
 let test there connction and see is there any connction betwean them, so will use ping and if we do everythings right we will see reply from analst macthine
 
 <img width="1421" height="877" alt="Annotation 2026-06-22 205406" src="https://github.com/user-attachments/assets/f802462d-a07f-4e54-ac7c-11b205a12a8d" />
+
+greate we aew in the right path, now let confiuer the attacker(kali) machone 
+
+<img width="1906" height="903" alt="Screenshot_2026-06-23_00_34_03" src="https://github.com/user-attachments/assets/f4297c0f-e524-43b9-b9c8-aad1a1eba67f" />
+
+if we do it right we show see reply in our ping test
+
+<img width="1440" height="860" alt="Annotation 2026-06-22 214656" src="https://github.com/user-attachments/assets/a0e1c519-ee3f-426e-b0b0-434e92ba3368" />
+
+as we see we configure all the machine very well 
+
+next we need to install symon and make windows redirct its logs to splunk in analyst machine
+
+let start with ownloading sysmon and configur it
