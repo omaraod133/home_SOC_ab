@@ -52,5 +52,14 @@ click done to set the victim virual machine up
 and we will do the same with the attacker virual machine
 
 
+now let start configure and give each machine his ip address and we will satrt with analsy machine 
 
+<img width="1897" height="885" alt="Screenshot From 2026-06-23 06-32-29" src="https://github.com/user-attachments/assets/4244398c-7ba5-4134-9a48-f18c40011b66" />
 
+then we will configure victm 
+
+<img width="1439" height="895" alt="Annotation 2026-06-22 201352" src="https://github.com/user-attachments/assets/74ebd322-fc3a-4c2a-86f7-51adc5bebe2f" />
+
+let test there connction and see is there any connction betwean them, so will use ping and if we do everythings right we will see reply from analst macthine
+
+<img width="1421" height="877" alt="Annotation 2026-06-22 205406" src="https://github.com/user-attachments/assets/f802462d-a07f-4e54-ac7c-11b205a12a8d" />
