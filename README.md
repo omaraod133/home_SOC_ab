@@ -77,3 +77,5 @@ as we see we configure all the machine very well
 next we need to install symon and make windows redirct its logs to splunk in analyst machine
 
 let start with ownloading sysmon and configur it
+
+
