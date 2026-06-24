@@ -76,6 +76,27 @@ as we see we configure all the machine very well
 
 next we need to install symon and make windows redirct its logs to splunk in analyst machine
 
-let start with ownloading sysmon and configur it
+let start with download splunkforwod and sysmon and configur it
+we will use splunkforword to make our victem machine send logs to splunk
+we will use sysmon becasce is give more detals and clean
 
+the dowbload is easy for splunkforwoed go to splunk offical website and download it 
+for sysmon go to microsoft and download it 
 
+let start with splunkForword we will start download it like download anyother softerware
+
+<img width="1440" height="900" alt="setup splunkforword" src="https://github.com/user-attachments/assets/92d695d1-7a30-40e4-93d9-a9c7e38404a4" />
+
+and here we need to tell him where to forware logs and we give it the ip of analy machine 
+
+<img width="1125" height="593" alt="splunkforwordsendip" src="https://github.com/user-attachments/assets/e722f175-5f25-4824-9ae9-3de81b6777f9" />
+
+and we don install it 
+
+<img width="1125" height="593" alt="finshSetupOfSeplunForword" src="https://github.com/user-attachments/assets/0033da73-7fda-4cc5-b69d-eaa1d621eb04" />
+
+now let see our output.conf to see where the logs forword
+<img width="1440" height="900" alt="splunkforwordOutputconf" src="https://github.com/user-attachments/assets/deec0bf1-c983-4587-85d1-93fa1ba4633b" />
+
+greate we see that our logs are correctly send to the analys machine 
+now we need to retart splunkforwoed so that the confurion 
