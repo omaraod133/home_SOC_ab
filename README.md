@@ -100,3 +100,12 @@ now let see our output.conf to see where the logs forword
 
 greate we see that our logs are correctly send to the analys machine 
 now we need to retart splunkforwoed so that the confurion 
+<img width="1440" height="860" alt="splunk restart" src="https://github.com/user-attachments/assets/f962eaac-2f25-4c38-a732-5ed996fd1948" />
+
+now let go to our analyst machine and see if the port 9997 is lisining (open) to retrive logs
+
+<img width="1687" height="900" alt="Screenshot From 2026-06-24 06-54-05" src="https://github.com/user-attachments/assets/75bf5b0f-7027-4b06-8f4b-26c66ed81b07" />
+as we see here the port are closed (becase we dont see it)
+
+let fix that and make splunk start liseing to that port by configure the input.conf
+
