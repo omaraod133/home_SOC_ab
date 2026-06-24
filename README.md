@@ -1,4 +1,4 @@
-# home_SOC_ab
+<img width="1440" height="860" alt="take this" src="https://github.com/user-attachments/assets/7b3e3ec1-a329-4fed-b939-1a30c379d917" /># home_SOC_ab
 
 step by step
 
@@ -99,51 +99,45 @@ Now, let's check our outputs.conf file to verify where the logs are being sent:
 
 Great, we can see that our logs are correctly pointing to the analyst machine.
 
-we also want to edite the input.conf to tell the splunkforward what data to collect and what laple to gave it
+we also want to edite the input.conf to tell the splunkforward what data to collect and what lable it with a specifi name 
 
-
-
-
+<img width="1440" height="860" alt="take this" src="https://github.com/user-attachments/assets/7da14c2d-1f9e-4df0-a7b7-b08078c15e49" />
 
 Now, we just need to restart the Splunk Forwarder service to apply the configuration.
 <img width="1440" height="860" alt="splunk restart" src="https://github.com/user-attachments/assets/f962eaac-2f25-4c38-a732-5ed996fd1948" />
 
-now let go to our analyst machine and see if the port 9997 is lisining (open) to retrive logs
+Now, let's move over to our analyst machine and check if port 9997 is listening (open) to receive the logs.
 
 <img width="1687" height="900" alt="Screenshot From 2026-06-24 06-54-05" src="https://github.com/user-attachments/assets/75bf5b0f-7027-4b06-8f4b-26c66ed81b07" />
-as we see here the port are closed (becase we dont see it)
+As we can see here, the port is closed (because it doesn't show up in the list).
 
-let fix that and make splunk start liseing to that port by configure the input.conf
-
-we see that we dont have input.conf in splunk so we will create it and confiegur it 
-
+Let's fix that. We need to make Splunk listen on that port by configuring the inputs.conf file. Since we don't have an inputs.conf file in this Splunk directory yet, we will create it from scratch and configure it:
 <img width="1629" height="870" alt="Screenshot From 2026-06-24 07-20-38" src="https://github.com/user-attachments/assets/90629ead-a6ca-478d-8aca-93811f2286de" />
 
-let check and see if the port open 
+Let's check again to see if the port is open:
 <img width="1629" height="870" alt="Screenshot From 2026-06-24 07-26-18" src="https://github.com/user-attachments/assets/c093c321-f9ad-40c5-805f-e7347ec9e81d" />
-greate now splunk lisening to port 9997
+Great, now Splunk is successfully listening on port 9997.
 
-but we stell didnt have connection from  splunkforword
-
-we need to 
+However, I still wasn't getting a connection from the Splunk Forwarder.
 
 <img width="1629" height="870" alt="Screenshot From 2026-06-24 07-28-34" src="https://github.com/user-attachments/assets/f489313f-4a42-4f04-84ba-aeee68f023d4" />
-so i check the firewall saying maybe it block the port 9997 but i found that firewall is inactive
+I checked the firewall thinking it might be blocking port 9997, but the firewall was completely inactive.
 
-and after 2 hour of search the mistake was that i write w in lowercase and i shoud write it in uppercase in the local/input.conf !!ahhhhhhhhhhh 
+After 2 hours of searching, I found the mistake: I accidentally wrote a lowercase "w" instead of an uppercase "W" in my local/inputs.conf file! Ahhhhhhhhhhh!
 
-<img width="1440" height="860" alt="mistake" src="https://github.com/user-attachments/assets/c980eaec-149f-4f48-ac07-825a5da0f2b9" />
+<img width="1440" height="900" alt="inputconfcorrected" src="https://github.com/user-attachments/assets/703c360f-71b6-4e5b-a5f3-0d432e9762dd" />
 
-but i learn a lot from that
+But hey, I learned a lot from troubleshooting that.
 
-now let test it by create mock system event using tool called createevent 
+Now, let's test our setup by creating a fake system event using a built-in Windows tool called `eventcreate`.
+
 <img width="1440" height="860" alt="create massage" src="https://github.com/user-attachments/assets/88e51ae9-9ad5-4f66-80a8-4c58c63fdce9" />
-here we create event with ID=555 and massage "Hello omar"
 
-Here is the reslute in splunk
+Here, I created a mock event with ID 555 and the message "Hello omar".
 
+And here is the final result inside Splunk:
 <img width="1629" height="871" alt="event" src="https://github.com/user-attachments/assets/f166cf12-a5c8-4bde-a19f-75f2e6d112c6" />
 
-Great
+Great! Everything works.
 
-now we will download sysmon and set it up in our windwos so it give us more detals of event
+Next, we will download Sysmon and set it up on our Windows machine so we can get even more detailed event data.
