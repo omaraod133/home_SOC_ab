@@ -109,3 +109,17 @@ as we see here the port are closed (becase we dont see it)
 
 let fix that and make splunk start liseing to that port by configure the input.conf
 
+we see that we dont have input.conf in splunk so we will create it and confiegur it 
+
+<img width="1629" height="870" alt="Screenshot From 2026-06-24 07-20-38" src="https://github.com/user-attachments/assets/90629ead-a6ca-478d-8aca-93811f2286de" />
+
+let check and see if the port open 
+<img width="1629" height="870" alt="Screenshot From 2026-06-24 07-26-18" src="https://github.com/user-attachments/assets/c093c321-f9ad-40c5-805f-e7347ec9e81d" />
+greate now splunk lisening to port 9997
+
+but we stell didnt have connection from  splunkforword
+
+<img width="1629" height="870" alt="Screenshot From 2026-06-24 07-28-34" src="https://github.com/user-attachments/assets/f489313f-4a42-4f04-84ba-aeee68f023d4" />
+so i check the firewall saying maybe it block the port 9997 but i found that firewall is inactive
+
+
