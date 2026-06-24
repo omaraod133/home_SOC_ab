@@ -13,23 +13,22 @@ Our lab will consist of 3 virtual machines:
     Attacker * Victim * Analyst
 
 <img width="1611" height="837" alt="Screenshot From 2026-06-22 06-35-31" src="https://github.com/user-attachments/assets/01a2ae24-85a0-4394-a429-1d078625ddaf" />
-
-
+<br><br><br>
 The attacker machine will attack the victim machine:
+
 <video src="https://github.com/user-attachments/assets/4435e20a-703e-44a5-9ba2-e4db5f2e1602" width="100%" controls preload="none"></video>
-
-
+<br><br><br>
 The victim machine will then send its logs to the analyst's SIEM:
 
 <video src="https://github.com/user-attachments/assets/a63ee215-3918-4870-bf3b-a83177d8ac62" width="100%" controls preload="none"></video>
-
+<br><br><br>
 Let's start configuring each machine.
 
 I set up each machine in VMware. Now, I will configure them so they can talk to each other without being connected to my actual host computer (to reduce security risks).
 
 <img width="1770" height="1030" alt="Screenshot_٢٠٢٦٠٦٢٢_٠٧٤٥١٤" src="https://github.com/user-attachments/assets/426cc2cc-da40-4b3b-bcd3-29b558a6345f" />
 
-
+<br><br><br>
 Let's start with the analyst virtual machine:
 <img width="1920" height="1035" alt="Screenshot_٢٠٢٦٠٦٢٢_١٤٣٣٥٥" src="https://github.com/user-attachments/assets/8d50177b-57a8-4103-b10e-b468dc6b8392" />
 
