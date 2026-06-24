@@ -119,7 +119,11 @@ greate now splunk lisening to port 9997
 
 but we stell didnt have connection from  splunkforword
 
+we need to 
+
 <img width="1629" height="870" alt="Screenshot From 2026-06-24 07-28-34" src="https://github.com/user-attachments/assets/f489313f-4a42-4f04-84ba-aeee68f023d4" />
 so i check the firewall saying maybe it block the port 9997 but i found that firewall is inactive
 
+and after 2 hour of search the mistake was that i write w in lowercase and i shoud write it in uppercase in the local/input.conf !!ahhhhhhhhhhh 
+but i learn a lot from that
 
