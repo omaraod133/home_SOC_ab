@@ -125,5 +125,19 @@ we need to
 so i check the firewall saying maybe it block the port 9997 but i found that firewall is inactive
 
 and after 2 hour of search the mistake was that i write w in lowercase and i shoud write it in uppercase in the local/input.conf !!ahhhhhhhhhhh 
+
+<img width="1440" height="860" alt="mistake" src="https://github.com/user-attachments/assets/c980eaec-149f-4f48-ac07-825a5da0f2b9" />
+
 but i learn a lot from that
 
+now let test it by create mock system event using tool called createevent 
+<img width="1440" height="860" alt="create massage" src="https://github.com/user-attachments/assets/88e51ae9-9ad5-4f66-80a8-4c58c63fdce9" />
+here we create event with ID=555 and massage "Hello omar"
+
+Here is the reslute in splunk
+
+<img width="1629" height="871" alt="event" src="https://github.com/user-attachments/assets/f166cf12-a5c8-4bde-a19f-75f2e6d112c6" />
+
+Great
+
+now we will download sysmon and set it up in our windwos so it give us more detals of event
