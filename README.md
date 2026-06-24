@@ -1,4 +1,4 @@
-<img width="1440" height="860" alt="take this" src="https://github.com/user-attachments/assets/7b3e3ec1-a329-4fed-b939-1a30c379d917" /># home_SOC_ab
+# home_SOC_ab
 
 step by step
 
