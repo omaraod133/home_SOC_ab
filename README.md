@@ -168,4 +168,20 @@ here we tell the splunkforward where he will find log to send it
 here we tell that splunkforwared that he will find sysmon logs under "Event Viwer"->Applications and Services Logs->microsft->windows->sysmon-Oprational
 and we tell it to send that logs to sysmon index
 
+then we will restart the splunkforward
+
+
 now we need to go to our analyst machine and create sysmon index so splunk can resive that logs
+we will open splunk and go to settings->indexs->click new index
+`iamge of creating sysmon index`
+
+when i search for index=sysmon and nothing show why??
+
+after checking splunkforward splunkl.log file i found out that the promble is in permion 
+`error from splunkforward log`
+errorcode=5 (access denied)
+
+then i whent to sevices to see what is the accout that start the splunkforward and i found it is `NT SERVICS/splunkforwared` this account is only a vriual account and it has "least privileged"
+the sloution for that is to add that accoun and give it permion to access event reader logs 
+copy that account name and we will search for computer mangment->local Group and user->Group and doup clike in event log readers-> click on add->pasd that account name->cilck ckeckname
+
