@@ -152,12 +152,17 @@ we need to nagvigate to where sysmon exit then move the configrion file to the s
 
 `image of the sysmonmveconfig`
 
+<img width="1440" height="860" alt="sysmonmoveconfigtosysmon" src="https://github.com/user-attachments/assets/3e09ddb1-2047-460f-a25f-7ed84f881970" />
+
 then we will install sysmon with
 `image of sysmonunstall`
+<img width="1440" height="860" alt="installsysmon" src="https://github.com/user-attachments/assets/70b5b0f1-0e13-4a1a-8528-7a0a60c8d7a1" />
+
 -i:is for add configrion file
 
 to check that sysmon is install we will go to services in windows and see 
 `chich sysmon install correctly`
+<img width="1440" height="860" alt="check sysomn is insatll it corrrectily" src="https://github.com/user-attachments/assets/d93170c5-4230-46eb-9120-2b3d652725c8" />
 
 
 and let make splunkforward send that sysmon log to splunk
@@ -165,6 +170,9 @@ we will open C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.c
 
 here we tell the splunkforward where he will find log to send it
 `image update input conf sysmon`
+<img width="1440" height="860" alt="updateinputcof with sysmon" src="https://github.com/user-attachments/assets/650c80e5-3210-4cf0-aa8a-67afcaabbddf" />
+
+
 here we tell that splunkforwared that he will find sysmon logs under "Event Viwer"->Applications and Services Logs->microsft->windows->sysmon-Oprational
 and we tell it to send that logs to sysmon index
 
@@ -175,13 +183,20 @@ now we need to go to our analyst machine and create sysmon index so splunk can r
 we will open splunk and go to settings->indexs->click new index
 `iamge of creating sysmon index`
 
+
+
 when i search for index=sysmon and nothing show why??
 
 after checking splunkforward splunkl.log file i found out that the promble is in permion 
 `error from splunkforward log`
+<img width="1440" height="860" alt="error of falid sysmon to connect" src="https://github.com/user-attachments/assets/bc781450-7c69-4fc9-99da-f7053d540b77" />
+
+
 errorcode=5 (access denied)
 
 then i whent to sevices to see what is the accout that start the splunkforward and i found it is `NT SERVICS/splunkforwared` this account is only a vriual account and it has "least privileged"
 the sloution for that is to add that accoun and give it permion to access event reader logs 
 copy that account name and we will search for computer mangment->local Group and user->Group and doup clike in event log readers-> click on add->pasd that account name->cilck ckeckname
+
+`iamge of imag cmputer mangment to edite evint reader pramion`
 
