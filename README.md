@@ -1,4 +1,4 @@
-<img width="1440" height="860" alt="computermangment to edite even rader permation" src="https://github.com/user-attachments/assets/bcf1114b-1e3a-4e25-bf36-9644bf5f8382" />
+
 # home_SOC_ab
 
 step by step
