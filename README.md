@@ -159,3 +159,13 @@ then we will install sysmon with
 to check that sysmon is install we will go to services in windows and see 
 `chich sysmon install correctly`
 
+
+and let make splunkforward send that sysmon log to splunk
+we will open C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf so we will open inputs.conf
+
+here we tell the splunkforward where he will find log to send it
+`image update input conf sysmon`
+here we tell that splunkforwared that he will find sysmon logs under "Event Viwer"->Applications and Services Logs->microsft->windows->sysmon-Oprational
+and we tell it to send that logs to sysmon index
+
+now we need to go to our analyst machine and create sysmon index so splunk can resive that logs
