@@ -142,70 +142,69 @@ Great! Everything works.
 
 Next, we will download Sysmon and it confgraion file set it up on our Windows machine so we can get even more detailed event data.
 
-we will download sysmon from microsof and we will download this sysmon configration from github 
+----
 
+We will download Sysmon from Microsoft and download this specific Sysmon configuration file from GitHub:
 
 <img width="1871" height="989" alt="Screenshot_٢٠٢٦٠٦٢٥_٠٥٣٥٢٩" src="https://github.com/user-attachments/assets/cce6aad0-2b45-476d-9361-a51ee280e382" />
 
-now that we have sysmon and it confiugration file we need to extract sysmon (unzip it) then after we do that we will open powershell with admin pervlige 
+Now that we have both Sysmon and its configuration file, we need to extract (unzip) the Sysmon folder. After that, we will open PowerShell with Administrator privileges.
 
-we need to nagvigate to where sysmon exit then move the configrion file to the sysmon
+Next, we need to navigate to the directory where Sysmon was extracted and move our configuration file into that same folder:
 
 `image of the sysmonmveconfig`
 
-<img width="1440" height="860" alt="sysmonmoveconfigtosysmon" src="https://github.com/user-attachments/assets/3e09ddb1-2047-460f-a25f-7ed84f881970" />
+<img width="1440" height="860" alt="sysmonmoveconfigtosysmon" src="https://github.com/user-attachments/assets/94a817ab-80ef-4667-b6cf-63fde0ed025f" />
 
-then we will install sysmon with
-`image of sysmonunstall`
+Then, we will install Sysmon using the command line`
+image of sysmonunstall`
 <img width="1440" height="860" alt="installsysmon" src="https://github.com/user-attachments/assets/70b5b0f1-0e13-4a1a-8528-7a0a60c8d7a1" />
 
--i:is for add configrion file
+Note that the `-i`flag is used to include our configuration file during the installation:
 
-to check that sysmon is install we will go to services in windows and see 
+To verify that Sysmon installed correctly, we can open the Windows Services app and check for the Sysmon service:
 `chich sysmon install correctly`
 <img width="1440" height="860" alt="check sysomn is insatll it corrrectily" src="https://github.com/user-attachments/assets/d93170c5-4230-46eb-9120-2b3d652725c8" />
 
 
-and let make splunkforward send that sysmon log to splunk
-we will open C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf so we will open inputs.conf
+Wow, let's configure the Splunk Forwarder to send these new Sysmon logs to our Splunk analyst machine. We will open the inputs.conf file located at `C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf.`
 
-here we tell the splunkforward where he will find log to send it
+In this file, we specify exactly where the forwarder can find the logs we want to send:
 `image update input conf sysmon`
 <img width="1440" height="860" alt="updateinputcof with sysmon" src="https://github.com/user-attachments/assets/650c80e5-3210-4cf0-aa8a-67afcaabbddf" />
 
 
-here we tell that splunkforwared that he will find sysmon logs under "Event Viwer"->Applications and Services Logs->microsft->windows->sysmon-Oprational
-and we tell it to send that logs to sysmon index
+Here, we tell the Splunk Forwarder that it can find the Sysmon logs under Event Viewer -> Applications and Services Logs -> Microsoft -> Windows -> Sysmon/Operational. We also configure it to send these logs specifically to a target index named sysmon.
 
-then we will restart the splunkforward
+After saving the file, we restart the Splunk Forwarder service.
 
 
-now we need to go to our analyst machine and create sysmon index so splunk can resive that logs
-we will open splunk and go to settings->indexs->click new index
+Next, we need to jump over to our analyst machine and create the new sysmon index so Splunk knows where to store the incoming data. Inside the Splunk web interface, navigate to Settings -> Indexes and click New Index:
 `iamge of creating sysmon index`
 
 <img width="1853" height="1048" alt="Screenshot From 2026-06-25 06-59-30" src="https://github.com/user-attachments/assets/1dc4011f-5a6d-4b2b-810d-a4c79c6b17d2" />
 
 
-when i search for index=sysmon and nothing show why??
+However, when I tried to search for index=sysmon, absolutely nothing showed up! Why?
 
-after checking splunkforward splunkl.log file i found out that the promble is in permion 
+To find out, I checked the Splunk Forwarder's internal log file (splunkd.log) on the victim machine. I discovered that the issue was a permission error
 `error from splunkforward log`
 <img width="1440" height="860" alt="error of falid sysmon to connect" src="https://github.com/user-attachments/assets/bc781450-7c69-4fc9-99da-f7053d540b77" />
 
+The logs showed errorcode=5, which means Access Denied.
 
-errorcode=5 (access denied)
+I opened the Windows Services app to check which account was running the Splunk Forwarder service. I found that it was running under NT SERVICE\splunkforwarder. This is a virtual service account, meaning it operates with "least privileges" and doesn't have permission to read advanced event logs by default:
 
-then i whent to sevices to see what is the accout that start the splunkforward and i found it is `NT SERVICS/splunkforwared` this account is only a vriual account and it has "least privileged"
 <img width="1440" height="860" alt="name of the leat peivalge account" src="https://github.com/user-attachments/assets/5a9f720f-0db1-4762-bd15-a12ecdf537a1" />
 
-the sloution for that is to add that accoun and give it permion to access event reader logs 
-copy that account name and we will search for computer mangment->local Group and user->Group and doup clike in event log readers-> click on add->pasd that account name->cilck ckeckname
+The solution is to add this service account to the local group that is allowed to read Windows event logs.
+
+I copied the account name`NT SERVICE\splunkforwarder` and opened Computer Management -> Local Users and Groups -> Groups. From there, I double-clicked on the Event Log Readers group, clicked Add, pasted the account name, and clicked Check Names:
 
 `iamge of imag cmputer mangment to edite evint reader pramion`
 <img width="1440" height="860" alt="computermangment to edite even rader permation" src="https://github.com/user-attachments/assets/e6971306-1f77-40fa-b330-abcc096f166e" />
 
-after finshing that and restart splunforward we will see that our sysmon index get some data Yhhhhhhhh
+After completing those steps and restarting the Splunk Forwarder service one more time, our Sysmon index successfully started receiving data
 
 <img width="1853" height="1048" alt="Screenshot From 2026-06-25 08-14-08" src="https://github.com/user-attachments/assets/8921e5dc-9336-4b81-833c-5e0aaec08ef6" />
 
