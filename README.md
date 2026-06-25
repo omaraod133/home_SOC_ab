@@ -171,7 +171,6 @@ Wow, let's configure the Splunk Forwarder to send these new Sysmon logs to our S
 
 In this file, we specify exactly where the forwarder can find the logs we want to send:
 `image update input conf sysmon`
-<img width="1440" height="860" alt="updateinputcof with sysmon" src="https://github.com/user-attachments/assets/650c80e5-3210-4cf0-aa8a-67afcaabbddf" />
 
 
 Here, we tell the Splunk Forwarder that it can find the Sysmon logs under Event Viewer -> Applications and Services Logs -> Microsoft -> Windows -> Sysmon/Operational. We also configure it to send these logs specifically to a target index named sysmon.
