@@ -1,3 +1,4 @@
+<img width="1440" height="860" alt="computermangment to edite even rader permation" src="https://github.com/user-attachments/assets/bcf1114b-1e3a-4e25-bf36-9644bf5f8382" />
 # home_SOC_ab
 
 step by step
@@ -183,6 +184,7 @@ now we need to go to our analyst machine and create sysmon index so splunk can r
 we will open splunk and go to settings->indexs->click new index
 `iamge of creating sysmon index`
 
+<img width="1853" height="1048" alt="Screenshot From 2026-06-25 06-59-30" src="https://github.com/user-attachments/assets/1dc4011f-5a6d-4b2b-810d-a4c79c6b17d2" />
 
 
 when i search for index=sysmon and nothing show why??
@@ -195,8 +197,16 @@ after checking splunkforward splunkl.log file i found out that the promble is in
 errorcode=5 (access denied)
 
 then i whent to sevices to see what is the accout that start the splunkforward and i found it is `NT SERVICS/splunkforwared` this account is only a vriual account and it has "least privileged"
+<img width="1440" height="860" alt="name of the leat peivalge account" src="https://github.com/user-attachments/assets/5a9f720f-0db1-4762-bd15-a12ecdf537a1" />
+
 the sloution for that is to add that accoun and give it permion to access event reader logs 
 copy that account name and we will search for computer mangment->local Group and user->Group and doup clike in event log readers-> click on add->pasd that account name->cilck ckeckname
 
 `iamge of imag cmputer mangment to edite evint reader pramion`
+<img width="1440" height="860" alt="computermangment to edite even rader permation" src="https://github.com/user-attachments/assets/e6971306-1f77-40fa-b330-abcc096f166e" />
+
+after finshing that and restart splunforward we will see that our sysmon index get some data Yhhhhhhhh
+
+<img width="1853" height="1048" alt="Screenshot From 2026-06-25 08-14-08" src="https://github.com/user-attachments/assets/8921e5dc-9336-4b81-833c-5e0aaec08ef6" />
+
 
