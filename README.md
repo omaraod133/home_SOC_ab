@@ -139,4 +139,23 @@ And here is the final result inside Splunk:
 
 Great! Everything works.
 
-Next, we will download Sysmon and set it up on our Windows machine so we can get even more detailed event data.
+Next, we will download Sysmon and it confgraion file set it up on our Windows machine so we can get even more detailed event data.
+
+we will download sysmon from microsof and we will download this sysmon configration from github 
+
+
+<img width="1871" height="989" alt="Screenshot_٢٠٢٦٠٦٢٥_٠٥٣٥٢٩" src="https://github.com/user-attachments/assets/cce6aad0-2b45-476d-9361-a51ee280e382" />
+
+now that we have sysmon and it confiugration file we need to extract sysmon (unzip it) then after we do that we will open powershell with admin pervlige 
+
+we need to nagvigate to where sysmon exit then move the configrion file to the sysmon
+
+`image of the sysmonmveconfig`
+
+then we will install sysmon with
+`image of sysmonunstall`
+-i:is for add configrion file
+
+to check that sysmon is install we will go to services in windows and see 
+`chich sysmon install correctly`
+
