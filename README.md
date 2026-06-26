@@ -231,5 +231,5 @@ we will download that add-on and then upload it to splunk
 
 then we will restart splunk 
 
-
+and we see that nothing changed
 
