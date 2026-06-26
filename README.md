@@ -232,4 +232,26 @@ we will download that add-on and then upload it to splunk
 then we will restart splunk 
 
 and we see that nothing changed
+so i say for about 4H searching for way to solve that then i descaver way to do that
+
+the promple that soucetype is came in lowerCase "xmlwineventlog" so that the add-on **Splunk Add-on for Sysmon** didnt rognize it will reconzite if it is lie this "XmlWinEvenLog"
+so i try many way to get the soucetype like "XmlWinEvenLog" but it didnt work so i find way that said we show configure that xmlwineventlog it it will use that sourctype and apply the extracting from in it so we will see the fileds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
