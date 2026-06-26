@@ -208,4 +208,28 @@ After completing those steps and restarting the Splunk Forwarder service one mor
 
 <img width="1853" height="1048" alt="Screenshot From 2026-06-25 08-14-08" src="https://github.com/user-attachments/assets/8921e5dc-9336-4b81-833c-5e0aaec08ef6" />
 
+as we see in the above image there is not fileds in the splunk there is only about 6 fileds and they are not that importent with text of row data so we need to fix that
+to handle sysmon we will downlaod add-ons called **Splunk Add-on for Sysmon** 
+and for handling standered windows events (like system,security..etc) we will download **Splunk Add-on for Microsoft Windows**
+
+what is the panvit of extrction filed??
+it make life easy rether then use complx splunk spl to get all ips or event id you will find them ready for you if you install these add-on let is take example
+let is see that we wnat to search for event ip of 1 (process creation)
+1- we need to extract all eventID and put them in filed classed EventID
+`image for extracting eventID`
+then we will use that feiled to look for eventID=1
+`image of search for eventID`
+and here as we see these are all pross created like notepad
+
+so we can do that without using any of that by using add-on we talk about
+
+so we will go to splunk/app websit and search for that add on
+`splunk/app/sysmon website iamge`
+
+we will download that add-on and then upload it to splunk
+`image of uploading add-on sysmon`
+
+then we will restart splunk 
+
+
 
