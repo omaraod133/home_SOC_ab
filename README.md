@@ -234,8 +234,34 @@ then we will restart splunk
 and we see that nothing changed
 so i say for about 4H searching for way to solve that then i descaver way to do that
 
-the promple that soucetype is came in lowerCase "xmlwineventlog" so that the add-on **Splunk Add-on for Sysmon** didnt rognize it will reconzite if it is lie this "XmlWinEvenLog"
-so i try many way to get the soucetype like "XmlWinEvenLog" but it didnt work so i find way that said we show configure that xmlwineventlog it it will use that sourctype and apply the extracting from in it so we will see the fileds
+form what i read the promple that splunk realse update to splunk add-on said that all windwos sourcetype should be convert it to lowercase and they dont confiuger windows-sysmon add-on
+so when the logs came to splunk and the sysmon look for "WinEventLog" and it see only "wineventlog" so it ignort it and didnt extract fileds.
+i found two way to slove this 1)is by make splunk look for every logs came with wineventlog and apply the extraction,this way it worked but it is not the perfect way why?is becase this way will nake splunk apply the rule of extrcting to all windwos log including systemlog firewall log or any logs came from windows
+2)is by make splunk change the source type from "wineventlog" to "WinEventLog" so when windows-sysmon chick the sourcetype it see WinEventLog so it extract the fileds from log
+so we will use sloution 2
+
+to do that we
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
