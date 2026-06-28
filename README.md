@@ -217,6 +217,9 @@ it make life easy rether then use complx splunk spl to get all ips or event id y
 let is see that we wnat to search for event ip of 1 (process creation)
 1- we need to extract all eventID and put them in filed classed EventID
 `image for extracting eventID`
+
+<img width="1839" height="871" alt="extractiondata with spl" src="https://github.com/user-attachments/assets/94ac6a85-2290-4f20-a641-8a13320145c5" />
+
 then we will use that feiled to look for eventID=1
 `image of search for eventID`
 and here as we see these are all pross created like notepad
@@ -228,8 +231,10 @@ so we will go to splunk/app websit and search for that add on
 
 we will download that add-on and then upload it to splunk
 `image of uploading add-on sysmon`
+<img width="1839" height="871" alt="uoloadsysmon addon" src="https://github.com/user-attachments/assets/70485eb6-18ba-40c0-a45e-b81ff8dbee83" />
 
 then we will restart splunk 
+sudo /opt/splunk/bin/splunk restart --run-as-root
 
 and we see that nothing changed
 so i say for about 4H searching for way to solve that then i descaver way to do that
@@ -266,9 +271,22 @@ REGEX = <Provider\s+Name="Microsoft-Windows_Sysmon"
 DEST__KEY = MetaData:Sourcetype
 FORMAT = sourcetype::XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
-here is our rule and it contain some instrecation to look for only sysmon sourctype log  and change to XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+here is our rule and it contain some instrecation to look for only sysmon sourctype log  and change to "XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+
+now here is our confirutions
+`image of cat the props and transfomt`
+
+<img width="1839" height="871" alt="reslute of confuring props and trans" src="https://github.com/user-attachments/assets/40a39c1f-c97c-43ba-9add-d2ee803630de" />
+
+then we will need to restart splunk by using 
+sudo /opt/splunk/bin/splunk restart --run-as-root
+
+and we finshed let look in splunk and see what happend
+
+<img width="1839" height="871" alt="Screenshot From 2026-06-28 06-06-56" src="https://github.com/user-attachments/assets/7e3b259a-96ac-4484-bbe8-439dfc5e2965" />
 
 
+now let do the intersting part we will attack the victem machine with our kali(attacker machine)
 
 
 
