@@ -287,7 +287,7 @@ and we finshed let look in splunk and see what happend
 
 
 now let do the intersting part we will attack the victem machine with our kali(attacker machine)
-
+notice:i add some log to send in the splunkForWard input.conf so it will send security,powershell logs
 
 
 
