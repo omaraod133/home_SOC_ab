@@ -237,14 +237,36 @@ so i say for about 4H searching for way to solve that then i descaver way to do 
 form what i read the promple that splunk realse update to splunk add-on said that all windwos sourcetype should be convert it to lowercase and they dont confiuger windows-sysmon add-on
 so when the logs came to splunk and the sysmon look for "WinEventLog" and it see only "wineventlog" so it ignort it and didnt extract fileds.
 i found two way to slove this 1)is by make splunk look for every logs came with wineventlog and apply the extraction,this way it worked but it is not the perfect way why?is becase this way will nake splunk apply the rule of extrcting to all windwos log including systemlog firewall log or any logs came from windows
-2)is by make splunk change the source type from "wineventlog" to "WinEventLog" so when windows-sysmon chick the sourcetype it see WinEventLog so it extract the fileds from log
-so we will use sloution 2
+2)is by make splunk look inside the xml raw and look for sysmon data and change it to XmlWinEventLog:Microsoft-Window...../Operational
 
-to do that we
+to do that we need to write rule to make splunk change look for xmlwineventlog:microsoft-..../Oprational and change it to XmlWinEventLog:Micro..../Oprational
 
+so we need to edit the props.conf and transforms.conf 
+what is the props.con and transfroms.conf so the props,conf is seting there to look at data when it come and look to its sourcetype if it mach a rule to will apply it like if you see sourcetype of wineventlog redirected to there
+transforms.conf when props.conf redirct data to transforms.conf it can apply some editing to it in our case it will change the sourcetype 
+why they make it in sprade filed why they dont do it in one file?? becase simply to save and speed the prosses the props.conf it only look for the sourcetype if it mach it will send it to the transforms.conf to edite it 
 
+so let start oure configruion
+we will open props.conf first
+sudo nano  /opt/splunk/etc/apps/Splunk_TA_windows/local/props.conf
+we wil write this rule in it 
+[xmlwineventlog]
 
+TRANSFORMS-route_sysmon = force_sysmon_sourcetype
 
+xmlwineventlog:tell splunk to check all incoming logs and look for log that its sourcetype is xmlwineventlog
+
+TRANSFORMS-route_sysmon = force_sysmon_sourcetype:telling splunk to route this data to transforms.conf and look for rule force_sysmon_sourcetype to spply it to this logs
+
+save that file then we will open transforms.conf
+sudo nano  /opt/splunk/etc/apps/Splunk_TA_windows/local/transforms.conf
+
+[force_sysmon_sourcetype]
+REGEX = <Provider\s+Name="Microsoft-Windows_Sysmon"
+DEST__KEY = MetaData:Sourcetype
+FORMAT = sourcetype::XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+here is our rule and it contain some instrecation to look for only sysmon sourctype log  and change to XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
 
 
