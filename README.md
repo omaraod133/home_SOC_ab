@@ -292,6 +292,9 @@ notice:i add some log to send in the splunkForWard input.conf so it will send se
 first we will use a basic nmap to scan the victem ip and see what service are opened and what is the opreating system are likly 
 `image of the scan ports using nmap`
 
+<img width="1906" height="868" alt="searchForOpenPortsUsingNmap" src="https://github.com/user-attachments/assets/9b3eb247-21ed-41eb-a6c6-d2c76a09705d" />
+
+
 here to see that we have ssh oprts opned and the opreaing system is likly windows 10
 
 for that we have two option 1)use a protforce attack on that opened ssh 2) we create fishing website and track user to doenload maliues file
@@ -307,8 +310,14 @@ search type:payload name:metepreter platform:windows
 amd we will search for the payload we want
 `image of metasploit handler`
 
+<img width="1906" height="868" alt="metasploithandler" src="https://github.com/user-attachments/assets/51c38014-a060-43ec-8144-cefae84ad1f4" />
+
+
 now let is exit and use `msfvenom` to create the malious file
 `image of bad file`
+
+<img width="1906" height="868" alt="createbadfile" src="https://github.com/user-attachments/assets/3c504466-ae69-4eba-a0cc-2a49101a3b77" />
+
 then we need to use paython to create local server to upload html page
 
 
@@ -316,16 +325,21 @@ then we need to create index.html to make website that look like facebook to dwo
 to creat that fake website we will use this cmmand python3 -m http.server 8000
 
  `image of whattapp`
+<img width="1908" height="870" alt="whatsApp" src="https://github.com/user-attachments/assets/2948105d-f67f-44eb-a701-b58eac27f40c" />
 
 great,next we need to make our kali establish connection with our malious file so it we give it instrcion to do
 we will use metasploit to do that
 
 we will use exploit/multi/handler to create the handler
 `image of the handler setup`
+<img width="1906" height="868" alt="setthehandlerup" src="https://github.com/user-attachments/assets/8e6e6e50-b179-463a-ae12-a14a1963dca5" />
 
+fantastic
 
+next we need to write email or any phiching email to make the vitctm access our fake website and dwonlad that maliouse file
+(since we are in lab in virment i will dowbload file to victem machine)
 
-
+we will open browser in the windows(victem)
 
 
 
