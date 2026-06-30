@@ -289,16 +289,39 @@ and we finshed let look in splunk and see what happend
 now let do the intersting part we will attack the victem machine with our kali(attacker machine)
 notice:i add some log to send in the splunkForWard input.conf so it will send security,powershell logs
 
+first we will use a basic nmap to scan the victem ip and see what service are opened and what is the opreating system are likly 
+`image of the scan ports using nmap`
+
+here to see that we have ssh oprts opned and the opreaing system is likly windows 10
+
+for that we have two option 1)use a protforce attack on that opened ssh 2) we create fishing website and track user to doenload maliues file
+we will use both
+
+create malusos file with metasploit 
+first we will look for payload to create that file 
+what we know is that this the target mashuion is **windows 10**
+we will opening the metasploite using `msfconsole`
+
+we will search for a payload to make the victem machine wait for instrcution, we will us this command to search:
+search type:payload name:metepreter platform:windows
+amd we will search for the payload we want
+`image of metasploit handler`
+
+now let is exit and use `msfvenom` to create the malious file
+`image of bad file`
+then we need to use paython to create local server to upload html page
 
 
+then we need to create index.html to make website that look like facebook to dwonload our maliouse file and i will use AI to create that page
+to creat that fake website we will use this cmmand python3 -m http.server 8000
 
+ `image of whattapp`
 
+great,next we need to make our kali establish connection with our malious file so it we give it instrcion to do
+we will use metasploit to do that
 
-
-
-
-
-
+we will use exploit/multi/handler to create the handler
+`image of the handler setup`
 
 
 
