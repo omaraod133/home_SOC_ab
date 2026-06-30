@@ -339,7 +339,7 @@ fantastic
 next we need to write email or any phiching email to make the vitctm access our fake website and dwonlad that maliouse file
 (since we are in lab in virment i will dowbload file to victem machine)
 
-we will open browser in the windows(victem)
+we will open browser in the windows(victem) and search for http://192.168.0.1:8000 and we will download the file like anyother normal employs
 
 
 
