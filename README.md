@@ -1,4 +1,4 @@
-
+<img width="1629" height="871" alt="threeEventRelated to the bad file" src="https://github.com/user-attachments/assets/168313ec-bded-4261-ae8b-a812bb6bd632" />
 # home_SOC_ab
 
 step by step
@@ -207,7 +207,7 @@ I copied the account name`NT SERVICE\splunkforwarder` and opened Computer Manage
 After completing those steps and restarting the Splunk Forwarder service one more time, our Sysmon index successfully started receiving data
 
 <img width="1853" height="1048" alt="Screenshot From 2026-06-25 08-14-08" src="https://github.com/user-attachments/assets/8921e5dc-9336-4b81-833c-5e0aaec08ef6" />
-
+---here
 as we see in the above image there is not fileds in the splunk there is only about 6 fileds and they are not that importent with text of row data so we need to fix that
 to handle sysmon we will downlaod add-ons called **Splunk Add-on for Sysmon** 
 and for handling standered windows events (like system,security..etc) we will download **Splunk Add-on for Microsoft Windows**
@@ -341,6 +341,7 @@ next we need to write email or any phiching email to make the vitctm access our 
 
 we will open browser in the windows(victem) and search for http://192.168.0.1:8000 and we will download the file like anyother normal employs
 `downlaod bad file in windows`
+<img width="1440" height="860" alt="dwonload bad file in windwos" src="https://github.com/user-attachments/assets/70fc7c12-a7ae-4ca6-ba2a-507e8da0d6ba" />
 
 then we will set it up after we opent it we will find in the attacker machine that there is a connection from the victem machine ip 192.168.0.2
 `connection start in metasploit`
@@ -349,24 +350,27 @@ now let wear the analy hat so im read
 
 when i search in sysmon i like to see what prossess are start it so i write this spl 
 index="sysmon" EventeD=1
+<img width="1629" height="871" alt="eventiD1three reslut" src="https://github.com/user-attachments/assets/1da5ae07-e0f8-40ef-9a36-871342e7fc2e" />
 
 here we see that we have three events 2 of them are system event and one in the middle is our maluses file
-`eventiD3 three event`
 let look to the event that is related to our malious file using ProcessGuid as a filter
 we see that there is three event and i use table so we can use the reslute 
 `three image related to the image`
+<img width="1629" height="871" alt="threeEventRelated to the bad file" src="https://github.com/user-attachments/assets/5992a971-56ff-4f00-9ebd-281cf12d28db" />
 
 we see that there is eventID of 3 "which is connection statrt" so why in earth file will start a network connection let deep dive in to that event 
 `connection start with attacker handler`
+<img width="1629" height="871" alt="connection start with the attacker handler" src="https://github.com/user-attachments/assets/000dad23-e43d-4020-a414-2017c9725e6d" />
+
 we see that the file update.exe is connected to the ip:192.168.0.1 on port 443
 
 we see that at 6:26:48 the user omar download the maluios file using microsft edge then at  06:26:48 the maluios file nameed update.exe connect to its attacker server (C2) attackerip:192.168.0.1 (which is our kali ip) on port 443 immedit action is isolated the endpoint
 
 Q:why we dont see the command we write in the metasploit termnali to see sysinfo of the victem machine?
 becase metasploit opreate dirctaliy in memery (RAM) whcih mean that attack didnt open powershell or cmd and type command it run the command in metasploit and metasploit tell his application that is runing in RAM to do the command 
-if you want to see the connction and what happend we can use wireshark and look at the network connection
+if you want to see the connction and what happend we can use wireshark and look at the network connection (let do that )
 
-
+we will restart our windows machine and then configure install the malious file and see the connection in wireshark
 
 
 
