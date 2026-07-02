@@ -364,9 +364,19 @@ we see that at 6:26:48 the user omar download the maluios file using microsft ed
 
 Q:why we dont see the command we write in the metasploit termnali to see sysinfo of the victem machine?
 becase metasploit opreate dirctaliy in memery (RAM) whcih mean that attack didnt open powershell or cmd and type command it run the command in metasploit and metasploit tell his application that is runing in RAM to do the command 
-if you want to see the connction and what happend we can use wireshark and look at the network connection (its intersting) let do that
+if you want to see the connction and what happend we can use wireshark and look at the network connection
 
-we will restart our windows so we clean the RAM from the maloise file and then we will open wireshark and dowload the file and run it again in windows and see the activty 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
