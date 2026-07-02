@@ -343,6 +343,34 @@ we will open browser in the windows(victem) and search for http://192.168.0.1:80
 `downlaod bad file in windows`
 
 then we will set it up after we opent it we will find in the attacker machine that there is a connection from the victem machine ip 192.168.0.2
+`connection start in metasploit`
+
+now let wear the analy hat so im read
+
+when i search in sysmon i like to see what prossess are start it so i write this spl 
+index="sysmon" EventeD=1
+
+here we see that we have three events 2 of them are system event and one in the middle is our maluses file
+`eventiD3 three event`
+let look to the event that is related to our malious file using ProcessGuid as a filter
+we see that there is three event and i use table so we can use the reslute 
+`three image related to the image`
+
+we see that there is eventID of 3 "which is connection statrt" so why in earth file will start a network connection let deep dive in to that event 
+`connection start with attacker handler`
+we see that the file update.exe is connected to the ip:192.168.0.1 on port 443
+
+we see that at 6:26:48 the user omar download the maluios file using microsft edge then at  06:26:48 the maluios file nameed update.exe connect to its attacker server (C2) attackerip:192.168.0.1 (which is our kali ip) on port 443 immedit action is isolated the endpoint
+
+Q:why we dont see the command we write in the metasploit termnali to see sysinfo of the victem machine?
+becase metasploit opreate dirctaliy in memery (RAM) whcih mean that attack didnt open powershell or cmd and type command it run the command in metasploit and metasploit tell his application that is runing in RAM to do the command 
+if you want to see the connction and what happend we can use wireshark and look at the network connection (its intersting) let do that
+
+we will restart our windows so we clean the RAM from the maloise file and then we will open wireshark and dowload the file and run it again in windows and see the activty 
+
+
+
+
 
 
 
